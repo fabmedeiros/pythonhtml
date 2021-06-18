@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Essa pagina tem elementos de layout.html</h1>
+<form method='POST' action='/inserir'>
+    <dl>
+        <dt>Titulo:
+            <dd><input type='text' size='30' name='titulo'></dd>
+        </dt>
+        <dt>Texto:
+            <dd><textarea rows='5' cols='40' name='texto'></textarea></dd>
+            <dd><input type='submit' value='Publicar'></dd>
+        </dt>
+    </dl>
+</form>
+<ul>
+    {% for entrada in entradas %}
+        <li><h2>{{ entrada.titulo }}</h2> {{ entrada.texto }} </li>
+    {% else %}
+        <p>Sem posts</p>
+    {% endfor %}
+</ul>
+
+{% endblock %}
