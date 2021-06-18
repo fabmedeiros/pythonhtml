@@ -4,3 +4,6 @@ git push
 
 pip freeze mostra as bibliotecas instaladas
 pip freeze > requirements.txt
+
+sqlite3 flaskr.db < schema.sql
+

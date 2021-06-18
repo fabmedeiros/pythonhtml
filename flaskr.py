@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask
+from flask import Flask, g
 
 # config
 DATABASE = './flaskr.db'
@@ -13,6 +13,14 @@ app.config.from_object(__name__)
 
 def connect_db():
     return sqlite3.connect(DATABASE)
+
+@app.before_request
+def before():
+    g.db = connect_db()
+
+@app.teardown_request
+def after(exception):
+    g.db.close()
 
 @app.route('/')
 def index():
