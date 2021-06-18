@@ -1,2 +1,6 @@
+git add .
+git commit -m "mensagem"
+git push
+
 pip freeze mostra as bibliotecas instaladas
 pip freeze > requirements.txt
